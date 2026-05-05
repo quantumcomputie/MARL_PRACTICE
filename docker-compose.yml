@@ -1,12 +1,23 @@
+x-marl-service: &marl-service
+  build: .
+  image: marl-practice:latest
+  working_dir: /workspace
+  volumes:
+    - .:/workspace
+  environment:
+    MPLCONFIGDIR: /workspace/.mplconfig
+    PYTHONPATH: /workspace/src
+  shm_size: "2gb"
+
 services:
   marl:
-    build: .
-    image: marl-practice:latest
-    working_dir: /workspace
-    volumes:
-      - .:/workspace
-    environment:
-      MPLCONFIGDIR: /workspace/.mplconfig
-      PYTHONPATH: /workspace/src
-    shm_size: "2gb"
+    <<: *marl-service
     command: bash
+
+  test:
+    <<: *marl-service
+    command: python -m pytest
+
+  demo:
+    <<: *marl-service
+    command: python -m marl_practice.envs.task_allocation_env

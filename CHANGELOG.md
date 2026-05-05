@@ -4,6 +4,10 @@ All notable updates to this MARL simulation repository will be tracked here.
 
 ## 2026-05-05
 
+- Added research-tracking docs for the literature matrix, paper notes, and open research questions.
+- Extended `TaskAllocationEnv` with configurable reward modes, view radius, and richer metrics.
+- Added initial RLlib/IPPO environment registration and Hydra-compatible config scaffolding.
+- Added GitHub Actions CI and explicit Docker Compose `test`/`demo` services.
 - Added Docker support with `Dockerfile`, `docker-compose.yml`, and `.dockerignore`.
 - Added a starter PettingZoo `ParallelEnv` for cooperative task allocation.
 - Added smoke tests for the environment API and observation/step behavior.

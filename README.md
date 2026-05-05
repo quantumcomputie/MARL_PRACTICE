@@ -6,6 +6,12 @@ Research sandbox for building and testing multi-agent reinforcement learning sim
 
 Track repository changes in [CHANGELOG.md](CHANGELOG.md).
 
+## Research Tracking
+
+Use [docs/research/README.md](docs/research/README.md) to add paper notes,
+maintain the literature matrix, and connect readings to implementation
+questions.
+
 ## Local Environment
 
 ```bash
@@ -21,12 +27,18 @@ docker compose build
 docker compose run --rm marl
 ```
 
-Inside the container:
+Run the same container checks used by CI:
 
 ```bash
-pytest
-python -m marl_practice.envs.task_allocation_env
+docker compose run --rm test
+docker compose run --rm demo
 ```
+
+## Training Scaffold
+
+The first training target is an IPPO-style PPO baseline for `TaskAllocationEnv`.
+The initial config lives at [configs/ippo_task_allocation.yaml](configs/ippo_task_allocation.yaml),
+with RLlib environment helpers in `src/marl_practice/training/`.
 
 ## First Environment
 
