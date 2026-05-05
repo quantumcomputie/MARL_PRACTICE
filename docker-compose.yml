@@ -1,0 +1,12 @@
+services:
+  marl:
+    build: .
+    image: marl-practice:latest
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    environment:
+      MPLCONFIGDIR: /workspace/.mplconfig
+      PYTHONPATH: /workspace/src
+    shm_size: "2gb"
+    command: bash

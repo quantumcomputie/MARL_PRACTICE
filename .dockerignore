@@ -1,0 +1,19 @@
+.git/
+.venv/
+.uv-cache/
+.uv-python/
+.mplconfig/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+
+# Local research papers and generated experiment output
+*.pdf
+playing Atari with Deep Reinforcement learning
+marl agent actor-critic for mixed cooperative*
+runs/
+wandb/
+mlruns/
+checkpoints/
+ray_results/
