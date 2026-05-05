@@ -2,6 +2,10 @@
 
 Research sandbox for building and testing multi-agent reinforcement learning simulations.
 
+## Project Updates
+
+Track repository changes in [CHANGELOG.md](CHANGELOG.md).
+
 ## Local Environment
 
 ```bash
