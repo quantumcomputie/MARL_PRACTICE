@@ -31,6 +31,18 @@ Known themes from the repo context and working roadmap:
   whether task allocation benefits from agent-to-agent information exchange.
 - **UAV task allocation:** domain framing for multi-agent routing, assignment,
   service timing, energy constraints, partial observability, and scalability.
+- **Game-theoretic MARL foundations:** Markov games, team Markov games,
+  Nash-equilibrium learning, opponent adaptation, WoLF/PDWoLF, AWESOME, and
+  Hyper-Q-style opponent modeling.
+- **Deep MARL stability and scale:** replay stabilization, recurrent
+  coordination networks, decentralized multi-task learning, partial
+  observability, and mean-field approximations for many agents.
+- **Safe MARL:** constrained policy optimization, bilevel/Stackelberg
+  formulations, autonomous-driving safety, collision constraints, and
+  constraint-aware evaluation.
+- **LLM-based multi-agent systems:** LLM agent surveys, theory-of-mind
+  collaboration, mutual human-AI modeling, interaction rewards, self-evolving
+  agents, and LLM-assisted research workflows.
 
 Do not invent full citations. If only a filename, keyword, or theme is known,
 record that and mark the citation fields as `TBD`.

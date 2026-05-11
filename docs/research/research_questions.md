@@ -15,6 +15,12 @@ experiment, or a design decision.
 | Which UAV task-allocation constraints should be introduced first after the grid-world baseline? | Domain realism should be added incrementally without breaking learning signal clarity. | uav-task-allocation, routing, energy, scheduling | Domain paper notes and a staged environment roadmap. | Open |
 | How should reward shaping balance fast task completion against efficient movement and fair workload distribution? | Reward details can dominate learning behavior. | reward-shaping, task-allocation, credit-assignment | Ablation plan comparing sparse, shaped, and team-only rewards. | Open |
 | Which algorithms scale best as agents and tasks increase? | The repo will need stress tests beyond the small sandbox. | mappo, qmix, vdn, communication | Scaling experiments with fixed seeds and comparable budgets. | Open |
+| Should the simulator be framed mainly as a Markov game, Dec-POMDP, constrained Markov game, or a PettingZoo engineering wrapper over all three? | The formal framing determines what observations, global state, rewards, constraints, and evaluation claims are legitimate. | markov-games, partial-observability, safe-marl | Compare Littman-style Markov games, partial-observability papers, and MACPO-style constrained formulations against our API. | Open |
+| How should sparse interaction be represented: local `view_radius`, graph neighborhoods, negotiation actions, or learned communication? | Task allocation may not require every agent to model every other agent at every step. | sparse-interactions, communication, negotiation, mean-field | Paper notes plus experiments varying agent density and task contention. | Open |
+| When do replay stabilization methods become necessary? | Off-policy baselines can fail when the replay buffer mixes data from changing co-learners. | dqn, qmix, experience-replay, nonstationarity | Implement IPPO first, then add replay only with fingerprints or related corrections. | Open |
+| At what fleet size should mean-field approximations replace pairwise or full joint modeling? | Large fleets can make centralized critics, mixers, and communication graphs expensive. | mean-field, scalability, many-agent | Scaling experiments across agent counts and density regimes. | Open |
+| Which safety metrics should be first-class environment outputs? | Safe MARL papers require constraint costs, not just reward penalties. | safe-marl, constraints, uav-task-allocation | Track collision rate, unsafe proximity, deadline violations, energy budget breaches, and constraint return. | Open |
+| Which LLM-agent papers inform our workflow versus the simulated agents themselves? | LLM collaboration papers are useful, but they should not blur low-level MARL baselines with research-assistant tooling. | llm-agents, theory-of-mind, research-automation | Separate docs for research-agent workflow and environment/training methods. | Open |
 
 ## Candidate Experiments
 
@@ -26,6 +32,8 @@ experiment, or a design decision.
 | Credit-assignment comparison | COMA / value decomposition | Track duplicate service attempts and idle steps. | Reduced wasted actions and faster completion. |
 | Communication stress test | Communication MARL | Restrict local task visibility or increase grid size. | Benefit of messages over no-message baseline. |
 | UAV realism step | UAV task allocation | Add energy budget, service duration, or task deadlines one at a time. | Constraint satisfaction and reward stability. |
+| Safe MARL smoke test | MACPO / constrained policy optimization | Add one cost signal, such as collisions or energy violations, without changing reward. | Constraint return, violation rate, and task completion. |
+| Many-agent scaling test | Mean-field MARL | Increase agents and tasks while holding density controlled. | Runtime, return variance, and coordination quality. |
 
 ## Answered Questions
 
